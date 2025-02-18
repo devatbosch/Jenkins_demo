@@ -1,0 +1,13 @@
+services:
+  - name: jenkins-master
+    type: web
+    env: docker
+    repo: https://github.com/devatbosch/Jenkins_demo
+    branch: main
+    plan: free
+    envVars:
+      - key: JENKINS_OPTS
+        value: "--prefix=/jenkins"
+    dockerfilePath: Dockerfile
+    healthCheckPath: /jenkins/login
+    autoDeploy: false
